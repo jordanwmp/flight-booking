@@ -1,0 +1,71 @@
+@use '../1_base/variables'
+@use '../3_modules/input-mixin'
+@use '../3_modules/button-mixin'
+@use '../1_base/responsive'
+
+.flight-booking
+    background-color: #fff
+    border-radius: 4px
+    margin: 20px auto 
+    padding: 24px
+    
+    @include responsive.responsive(xs)
+        width: 100%
+
+    @include responsive.responsive(sm)
+        width: 100%
+        max-width: 500px
+        margin: 20px auto
+
+    @include responsive.responsive(md)
+        max-width: 500px
+
+    h1 
+        font-size: 2.5em
+        margin-bottom: 15px
+
+        @include responsive.responsive(xs)
+            font-size: 2em
+
+    &-form 
+        div
+            display: flex
+            flex-direction: column
+            label
+                font-weight: bold
+            input 
+                @include input-mixin.input
+                margin-left: 0
+            
+        .form-btn
+            @include button-mixin.button
+            max-width: 100%
+            max-width: uset
+
+    .itinerary
+        margin-top: 10px
+
+        h3 
+            font-size: 1.5em
+            @include responsive.responsive(xs)
+                font-size: 1.2em
+        &-item 
+            margin: 10px auto
+            display: flex
+            flex-direction: column
+            gap: 5px 
+
+            @include responsive.responsive(xs)
+                gap: 2px
+    
+    .back-btn
+            @include button-mixin.button
+            background-color: variables.$danger-color
+            max-width: 120px
+
+            @include responsive.responsive(xs)
+            max-width: 100%
+
+            &:hover 
+                color: variables.$danger-color 
+                border: 1px solid variables.$danger-color 

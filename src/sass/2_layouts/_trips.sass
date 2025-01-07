@@ -1,0 +1,29 @@
+@use '../1_base/variables'
+@use '../3_modules/message-mixin'
+@use '../1_base/responsive'
+
+.loading
+    @include message-mixin.message(variables.$info-color)
+
+.errorMessage
+    @include message-mixin.message(variables.$danger-color)
+
+.trip-list
+    h1 
+        font-size: 2.5rem
+        margin: 1.5rem 0
+        color: #F9F9F9
+
+        @include responsive.responsive(xs)
+            font-size:1.8em
+            text-align: center
+    
+    .trip-list-cards
+        display: flex
+        flex-wrap: wrap
+        justify-content: flex-start
+        align-items: center
+        gap: 1.5rem
+
+        @include responsive.responsive(xs)
+            justify-content: center

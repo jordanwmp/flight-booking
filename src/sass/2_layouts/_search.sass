@@ -1,0 +1,61 @@
+@use '../1_base/variables'
+@use '../3_modules/_input-mixin'
+@use '../3_modules/button-mixin'
+@use '../1_base/_responsive'
+@use '../3_modules/message-mixin'
+
+.search
+    background: variables.$light-color
+    padding: 12px
+    border-radius: 8px
+    margin-top: 24px
+
+    @include responsive.responsive(xs)
+        width: 100%
+        max-width: 350px
+        margin: 20px auto
+
+    @include responsive.responsive(sm)
+        max-width: 600px
+
+    h1
+        font-size: 2em
+        margin-bottom: 10px
+
+        @include responsive.responsive(xs)
+            font-size: 1.2em
+    form
+        padding: 0
+        display: flex
+        align-items: center
+
+        @include responsive.responsive(xs)
+            flex-direction: column
+
+        @include responsive.responsive(sm)
+            flex-direction: row
+
+        input
+            @include input-mixin.input
+            flex-grow: 1
+            flex: 1
+
+            @include responsive.responsive(xs)
+                height: 30px
+                flex: auto
+                flex-grow: auto
+
+        button
+            @include button-mixin.button
+            flex-grow: 1.5
+            flex: 1
+
+            @include responsive.responsive(xs)
+                flex-grow: auto
+                flex: auto
+                max-width: 100%
+                height: 30px
+
+    .error
+        @include message-mixin.message(variables.$danger-color)
+        padding: 10px

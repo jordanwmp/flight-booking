@@ -1,0 +1,67 @@
+@use '../1_base/variables'
+@use '../3_modules/card'
+@use '../3_modules/button-mixin'
+@use '../1_base/responsive'
+
+.trip-card
+    @include card.card
+
+    @include responsive.responsive(xs)
+        width: 100%
+
+    .trip-details
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-top: 10px
+
+        .trip-info
+            display: flex
+            flex-direction: column
+
+            .time
+                font-weight: bold
+                font-size: 1.2em
+            
+            .location
+                font-weight: 100
+                color: variables.$font-color
+
+    .flight-details
+        display: flex
+        justify-content: space-between
+        align-items: center
+        // gap: 20px
+        border-bottom: 1px solid #e5e5e5
+        padding-bottom: 8px
+        margin: 10px 0
+
+        @include responsive.responsive(xs)
+            gap: 8px
+
+
+        .flight-summary
+            display: flex
+            flex-direction: column
+            flex: 1
+            flex-grow: 0.7
+
+            .flight-price
+                font-size: 1.2em
+
+            .flight-airline
+                font-size: 0.8em
+            
+            .flight-price, .flight-airline
+                font-weight: bold
+
+                
+
+        .see-offer
+            @include button-mixin.button
+            flex: 1
+            flex-grow: 1
+        
+    .trip-date
+        .date-info
+            color: #bfbfbf

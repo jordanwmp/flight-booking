@@ -1,0 +1,17 @@
+@use '../1_base/variables'
+
+@mixin button
+    background-color: variables.$primary-color
+    display: block
+    width: 500px
+    height: 40px
+    color: variables.$light-color
+    border: none
+    border-radius: 4px
+    font-weight: bold
+    cursor: pointer
+
+    &:hover
+        background-color: variables.$light-color
+        color: variables.$primary-color
+        border: 1px solid variables.$primary-color

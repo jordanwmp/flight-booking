@@ -1,0 +1,37 @@
+@use '../1_base/variables'
+@use '../1_base/responsive'
+@use '../3_modules/input-mixin'
+@use '../3_modules/button-mixin'
+
+.container-filter
+    // display: flex
+    // flex-direction: column
+    background-color: #fff
+    padding: 24px
+    border-radius: 8px
+    margin-top: 24px
+
+    @include responsive.responsive(xs)
+        width: 100%
+        max-width: 350px
+        margin: 20px auto
+
+    @include responsive.responsive(sm)
+        max-width: 600px
+
+    .show-form
+        @include button-mixin.button
+        max-width: 150px
+        margin-bottom: 8px
+
+    .form-filter
+
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 10px
+
+        label 
+            select
+                @include input-mixin.input
+                margin-left: 0px

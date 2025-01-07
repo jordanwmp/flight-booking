@@ -1,0 +1,57 @@
+@use '../1_base/variables'
+@use '../3_modules/card'
+@use '../3_modules/button-mixin'
+@use '../1_base/responsive'
+
+.card-trip-detail
+    @include  card.card
+    display: block
+    margin: 10px auto
+
+    @include responsive.responsive(sm)
+        max-width: 450px
+
+    @include responsive.responsive(md)
+        max-width: 600px
+
+    @include responsive.responsive(lg)
+        max-width: 800px
+
+    .card-trip-content
+        padding: 12px
+        display: flex
+        flex-direction: column
+        gap: 10px
+
+        .origin-destination
+            p 
+                font-size: 1.5em
+                font-weight: bold
+
+        .itineraries
+            display: flex
+            flex-direction: column
+            gap: 10px
+
+    .btn-container
+        display: flex
+        gap: 8px
+        justify-content: flex-start
+        align-items: center
+
+        .back-button, .buy-button
+            @include button-mixin.button
+            width: 100%
+            max-width: 100px
+            margin: 10px 0 0
+        
+        .back-button
+            background-color: variables.$danger-color 
+
+            &:hover 
+                color: variables.$danger-color 
+                border: 1px solid variables.$danger-color 
+
+    
+
+    
